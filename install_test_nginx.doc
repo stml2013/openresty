@@ -1,0 +1,4 @@
+git clone https://github.com/agentzh/test-nginx.git
+cd test-nginx
+perl Makefile.PL
+sudo make install
