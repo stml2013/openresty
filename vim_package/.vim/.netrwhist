@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/opt/data0/zookeeper-3.4.6'
+let g:netrw_dirhist_2='/opt/data0/zookeeper-3.4.6/conf'
+let g:netrw_dirhist_3='/home/smtl2013/orwork/kafka_datadispatch/branches/update_store_by_onoffmsg/package'
