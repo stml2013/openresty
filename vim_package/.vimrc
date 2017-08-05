@@ -43,6 +43,7 @@ Plugin 'plasticboy/vim-markdown'
 "Plugin 'tpope/vim-markdown'
 """]
 
+Plugin 'pseewald/vim-anyfold'
 
 "" Refer:
 " - http://vim-scripts.org/vim/scripts.html
@@ -117,6 +118,10 @@ set showmatch		" Cursor shows matching bracket
 """ fold {
 set foldmethod=syntax
 set foldlevel=100
+filetype plugin indent on
+syntax on
+let anyfold_activate=1
+set foldlevel=4
 """}
 
 """ filetype {
@@ -220,10 +225,12 @@ command W w !sudo tee % > /dev/null
 " => Module {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ cscope [
-" autoload cscope.out
-if has("cscope")
-    if filereadable("cscope.out")
-        cscope add  cscope.out
+ "autoload cscope.out
+if v:version > 702
+    if has("cscope")
+        if filereadable("cscope.out")
+            cscope add  cscope.out
+        endif
     endif
 endif
 """]
@@ -255,7 +262,7 @@ let Tlist_Show_One_File=1           " Show tags for the current buffer only.
 let Tlist_Exit_OnlyWindow=1         " Close Vim if the taglist is the only window.
 "let Tlist_Use_Right_Window=1        " Place the taglist window on the right side.
 let Tlist_Use_Left_Window=1        " Place the taglist window on the right side.
-let Tlist_WinWidth=50               " Vertically split taglist window width.
+let Tlist_WinWidth=30               " Vertically split taglist window width.
 "let Tlist_Use_Horiz_Window=1        " Use a horizontally split window for the taglist window.
 "let Tlist_WinHeight=10              " Horizontally split taglist window height.
 "let Tlist_Close_On_Select=1         " Close the taglist window when a file or tag is selected.
@@ -351,4 +358,4 @@ let g:CommandTMaxHeight = 15
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " } <= Plugin Config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+map <F10> :NERDTreeToggle<CR>
